@@ -1,6 +1,6 @@
-node{
+ node{
     stage('git checkout'){
-        git credentialsId: 'git-creds', url: 'https://github.com/shubhamkushwah123/devops-bootcamp2.git'
+        git credentialsId: 'admin', url: 'https://github.com/priyapatil45/test.git'
     }
     
     stage('code build & test'){
@@ -12,18 +12,18 @@ node{
     }
     
     stage('docker build'){
-        sh 'docker build -t shubhamkushwah123/cicd-demo:3.0 .'
+        sh 'docker build -t pripatil/bootcamp3:1.0.0 .'
     }
     
-    stage('docker push'){
+    //stage('docker push'){
      //  withCredentials([string(credentialsId: 'dockerPwd', variable: 'dockerHubPwd')]) {
-     //   sh "docker login -u shubhamkushwah123 -p ${dockerHubPwd}"
+     //   sh "docker login -u pripatil -p ${dockerHubPwd}"
      //   }
-     //   sh 'docker push shubhamkushwah123/cicd-demo:3.0'
-    }
+     //   sh 'docker push pripatil/bootcamp3:1.0.0'
+    //}
     
     stage('configure ec2 with ansible'){
-    //    ansiblePlaybook becomeUser: 'ec2-user', credentialsId: 'aws-dev-server', installation: 'ansible', playbook: 'my-aws-playbook.yml', sudoUser: 'ec2-user'
+    //    ansiblePlaybook becomeUser: 'ec2-user', credentialsId: 'aws-dev-server', installation: 'ansible', playbook: 'aws-playbook.yml', sudoUser: 'ec2-user'
     }
     
     def ipAddress = "NULL"
@@ -50,16 +50,17 @@ node{
     }
     
     stage('pull docker image'){
-        def dockerCMD = 'sudo docker pull shubhamkushwah123/cicd-demo:3.0'
+        def dockerCMD = 'sudo docker pull pripatil/bootcamp3:1.0.0'
         sshagent(['aws-dev-server']) {
         sh "ssh -o StrictHostKeyChecking=no ec2-user@${ipAddress} ${dockerCMD}"
         }
     }
     
     stage('run docker image'){
-        def dockerCMD = 'sudo docker run -p 80:8082 -d shubhamkushwah123/cicd-demo:3.0'
+        def dockerCMD = 'sudo docker run -p 80:8082 -d pripatil/bootcamp3:1.0.0'
         sshagent(['aws-dev-server']) {
         sh "ssh -o StrictHostKeyChecking=no ec2-user@${ipAddress} ${dockerCMD}"
         }
     }
 }
+
