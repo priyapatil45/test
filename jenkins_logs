@@ -1,0 +1,225 @@
+
+Skip to content
+[Jenkins]Jenkins
+search
+2
+New version of Jenkins (2.249.1) is available for download (changelog).
+Warnings have been published for the following currently installed components:
+Jenkins 2.235.1 core and libraries
+Multiple security vulnerabilities in Jenkins 2.251 and earlier, LTS 2.235.3 and earlier
+Multiple security vulnerabilities in Jenkins 2.244 and earlier, LTS 2.235.1 and earlier
+Buffer corruption in bundled Jetty
+Manage Jenkins
+
+admin
+log out
+Jenkins
+cicd-devops-pipeline
+#4
+ Back to Project
+ Status
+ Changes
+ Console Output
+ View as plain text
+ Edit Build Information
+ Delete build ‘#4’
+ Git Build Data
+ No Tags
+ Replay
+ Pipeline Steps
+ Workspaces
+ Previous Build
+ Next Build
+FailedConsole Output
+Started by user admin
+Running in Durability level: MAX_SURVIVABILITY
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/cicd-devops-pipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (git checkout)
+[Pipeline] git
+The recommended git tool is: NONE
+Warning: CredentialId "admin" could not be found.
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/priyapatil45/test.git # timeout=10
+Fetching upstream changes from https://github.com/priyapatil45/test.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.17.1'
+ > git fetch --tags --progress -- https://github.com/priyapatil45/test.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision e75e405219038ed22c9cc7a0c543d22b3bf0f65a (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f e75e405219038ed22c9cc7a0c543d22b3bf0f65a # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D master # timeout=10
+ > git checkout -b master e75e405219038ed22c9cc7a0c543d22b3bf0f65a # timeout=10
+Commit message: "update dockerfile"
+ > git rev-list --no-walk e75e405219038ed22c9cc7a0c543d22b3bf0f65a # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (code build & test)
+[Pipeline] tool
+[Pipeline] sh
++ /var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/maven-3/bin/mvn clean package
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.bootcamp:cicd-demo >-----------------------
+[INFO] Building cicd-demo 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ cicd-demo ---
+[INFO] Deleting /var/lib/jenkins/workspace/cicd-devops-pipeline/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ cicd-demo ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ cicd-demo ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /var/lib/jenkins/workspace/cicd-devops-pipeline/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ cicd-demo ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/cicd-devops-pipeline/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ cicd-demo ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /var/lib/jenkins/workspace/cicd-devops-pipeline/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ cicd-demo ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.TestCalculatorService
+12:16:25.225 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+12:16:25.300 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+12:16:25.422 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.TestCalculatorService] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+12:16:25.531 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.TestCalculatorService], using SpringBootContextLoader
+12:16:25.560 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.TestCalculatorService]: class path resource [com/TestCalculatorService-context.xml] does not exist
+12:16:25.569 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.TestCalculatorService]: class path resource [com/TestCalculatorServiceContext.groovy] does not exist
+12:16:25.571 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.TestCalculatorService]: no resource found for suffixes {-context.xml, Context.groovy}.
+12:16:25.582 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.TestCalculatorService]: TestCalculatorService does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+12:16:25.788 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.TestCalculatorService]
+12:16:26.177 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/var/lib/jenkins/workspace/cicd-devops-pipeline/target/classes/com/Application.class]
+12:16:26.225 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.Application for test class com.TestCalculatorService
+12:16:26.519 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.TestCalculatorService]: using defaults.
+12:16:26.520 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+12:16:26.571 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/TransactionDefinition]
+12:16:26.590 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+12:16:26.590 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3571b748, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3e96bacf, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@484970b0, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@4470f8a6, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7c83dc97, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7748410a, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@740773a3, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@37f1104d, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@55740540, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@60015ef5]
+12:16:26.603 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@3943a2be testClass = TestCalculatorService, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@343570b7 testClass = TestCalculatorService, locations = '{}', classes = '{class com.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@36f0f1be, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@55040f2f, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@123f1134, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@691a7f8f], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+12:16:26.733 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.7.RELEASE)
+
+2020-10-04 12:16:27.708  INFO 15545 --- [           main] com.TestCalculatorService                : Starting TestCalculatorService on ip-172-31-25-134 with PID 15545 (started by jenkins in /var/lib/jenkins/workspace/cicd-devops-pipeline)
+2020-10-04 12:16:27.712  INFO 15545 --- [           main] com.TestCalculatorService                : No active profile set, falling back to default profiles: default
+2020-10-04 12:16:36.990  INFO 15545 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-04 12:16:37.260  INFO 15545 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2020-10-04 12:16:37.961  INFO 15545 --- [           main] com.TestCalculatorService                : Started TestCalculatorService in 11.151 seconds (JVM running for 15.899)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.116 s - in com.TestCalculatorService
+2020-10-04 12:16:39.143  INFO 15545 --- [       Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.2:jar (default-jar) @ cicd-demo ---
+[INFO] Building jar: /var/lib/jenkins/workspace/cicd-devops-pipeline/target/cicd-demo-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.1.7.RELEASE:repackage (repackage) @ cicd-demo ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.1.7.RELEASE:repackage (default) @ cicd-demo ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  29.368 s
+[INFO] Finished at: 2020-10-04T12:16:42Z
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (docker build)
+[Pipeline] sh
++ docker build -t pripatil/bootcamp3:1.0.0 .
+Sending build context to Docker daemon  17.02MB
+
+Step 1/7 : FROM openjdk:8-jdk-alpine
+8-jdk-alpine: Pulling from library/openjdk
+e7c96db7181b: Pulling fs layer
+f910a506b6cb: Pulling fs layer
+c2274a1a0e27: Pulling fs layer
+f910a506b6cb: Verifying Checksum
+f910a506b6cb: Download complete
+e7c96db7181b: Verifying Checksum
+e7c96db7181b: Download complete
+e7c96db7181b: Pull complete
+f910a506b6cb: Pull complete
+c2274a1a0e27: Verifying Checksum
+c2274a1a0e27: Download complete
+c2274a1a0e27: Pull complete
+Digest: sha256:94792824df2df33402f201713f932b58cb9de94a0cd524164a0f2283343547b3
+Status: Downloaded newer image for openjdk:8-jdk-alpine
+ ---> a3562aa0b991
+Step 2/7 : EXPOSE 8888
+ ---> Running in b01cd03be5a9
+Removing intermediate container b01cd03be5a9
+ ---> 97bb9508f0c8
+Step 3/7 : ARG JAR_FILE=/target/*.jar
+ ---> Running in 81ecb6c62269
+Removing intermediate container 81ecb6c62269
+ ---> e1ccf34ac2ab
+Step 4/7 : COPY ${JAR_FILE} app.jar
+ ---> b6e6d0f0bdfe
+Step 5/7 : RUN echo "Creating docker image"
+ ---> Running in 816de1fb9dab
+Creating docker image
+Removing intermediate container 816de1fb9dab
+ ---> 1b5690369d6e
+Step 6/7 : MAINTAINER "priyapatil180@gmail.com"
+ ---> Running in 83de9a755757
+Removing intermediate container 83de9a755757
+ ---> f275d4ce088f
+Step 7/7 : ENTRYPOINT ["java", "-jar", "app.jar"]
+ ---> Running in ce1295e27427
+Removing intermediate container ce1295e27427
+ ---> 649ce166b944
+Successfully built 649ce166b944
+Successfully tagged pripatil/bootcamp3:1.0.0
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (configure ec2 with ansible)
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (identify IP address)
+[Pipeline] sh
++ aws ec2 describe-instances --query Reservations[*].Instances[*].PublicIpAddress[]
+/var/lib/jenkins/workspace/cicd-devops-pipeline@tmp/durable-25855fae/script.sh: 1: /var/lib/jenkins/workspace/cicd-devops-pipeline@tmp/durable-25855fae/script.sh: aws: not found
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 127
+Finished: FAILURE
+Page generated:
+Oct 4, 2020 12:17:05 PM UTC
+REST API
+Jenkins 2.235.1
